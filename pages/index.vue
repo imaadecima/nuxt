@@ -40,10 +40,10 @@
 
 <script>
 export default {
-  async asyncData ({ $http }) {
-    const test = await $http.$get('/api/test')
+  asyncData ({ $http }) {
+    // const test = await $http.$get('/api/test')
     return {
-      test
+      test: 'Holaaaaa'
     }
   }
 }
