@@ -4,6 +4,10 @@
     {
       "src": "/api/test",
       "dest": "/api/index.js"
+    },
+    {
+      "src": "/api/users",
+      "dest": "/api/index.js"
     }
   ],
   "builds": [
