@@ -12,7 +12,7 @@ app.use(users)
 app.use(test)
 
 // Export express app
-module.exports = app
+export default { path: '/api', handler: app }
 
 // Start standalone server if directly running
 if (require.main === module) {
