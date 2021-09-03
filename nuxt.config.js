@@ -60,7 +60,7 @@ export default {
   /*
   ** Server Middleware
   */
-  serverMiddleware: ['~/api', '~/api/test'],
+  serverMiddlewere: [{ path: '/api', handler: '~/api/' }],
 
   /*
   ** For deployment you might want to edit host and port
