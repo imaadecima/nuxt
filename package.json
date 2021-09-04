@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxt/http": "latest",
+    "cookies": "^0.8.0",
     "express": "latest",
     "nuxt": "latest"
   },

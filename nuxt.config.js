@@ -60,7 +60,7 @@ export default {
   /*
   ** Server Middleware
   */
-  serverMiddleware: {},
+  serverMiddleware: ['~/server-middleware/tokenValidate'],
 
   /*
   ** For deployment you might want to edit host and port
