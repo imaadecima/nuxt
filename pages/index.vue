@@ -38,6 +38,10 @@
   </div>
 </template>
 
+<script>
+
+</script>
+
 <style scoped>
 .container {
   margin: 0 auto;

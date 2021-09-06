@@ -1,12 +1,13 @@
-// const bodyParser = require('body-parser')
+const Axios = require('axios')
 const Cookies = require('cookies')
 const app = require('express')()
 module.exports = { path: '/api', handler: app }
 
-// app.use(bodyParser.json())
-
 app.get('/', (req, res) => {
-  res.end('API Nuxt')
+  Axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    .then((json) => {
+      res.send(json.data)
+    })
 })
 
 app.get('/token', (req, res) => {
