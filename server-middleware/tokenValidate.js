@@ -17,14 +17,6 @@ export default function (req, res, next) {
     res.end()
   }
 
-  /* if (!loadingPage && !PageLogin && token) {
-    next()
-  }
-
-  if (!loadingPage && PageLogin && !token) {
-    next()
-  } */
-
   if (req.url === '/settoken' && req.url !== '/_loading/sse') {
     cookies.set('token', 'Bearer TOKEN', {
       maxAge: 3600000 * 12,

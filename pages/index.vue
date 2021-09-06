@@ -6,7 +6,7 @@
         NUXT
       </h1>
       <div>
-        {{ test }}
+        test
         <div class="links">
           <a
             href="/users"
@@ -37,17 +37,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  asyncData ({ $http }) {
-    // const test = await $http.$get('/api/test')
-    return {
-      test: 'Holaaaaa'
-    }
-  }
-}
-</script>
 
 <style scoped>
 .container {
