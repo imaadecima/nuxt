@@ -18,11 +18,10 @@ export default function (req, res, next) {
   }
 
   if (req.url === '/settoken' && req.url !== '/_loading/sse') {
-    console.log(req)
-    /* cookies.set('token', 'Bearer TOKEN', {
+    cookies.set('token', 'Bearer TOKEN', {
       maxAge: 3600000 * 12,
       httpOnly: true // true by default
-    }) */
+    })
   }
 
   next()
