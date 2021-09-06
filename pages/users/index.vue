@@ -8,7 +8,7 @@
       <ul class="users">
         <li v-for="(user, index) in users" :key="index" class="user">
           <nuxt-link :to="{ name: 'users-id', params: { id: index }}">
-            {{ user.name }}
+            username
           </nuxt-link>
         </li>
       </ul>
@@ -18,20 +18,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  async asyncData ({ $http }) {
-    const data = await $http.$get('/api/users')
-    return { users: data }
-  },
-  head () {
-    return {
-      title: 'Users'
-    }
-  }
-}
-</script>
 
 <style scoped>
 .container {

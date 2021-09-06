@@ -6,7 +6,7 @@
         User
       </h1>
       <h2 class="info">
-        {{ user.name }}
+        info
       </h2>
       <nuxt-link class="button" to="/users">
         Users
@@ -14,25 +14,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  asyncData ({ params, error, $http }) {
-    return $http.$get('/api/users/' + params.id)
-      .then((res) => {
-        return { user: res }
-      })
-      .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
-      })
-  },
-  head () {
-    return {
-      title: `User: ${this.user.name}`
-    }
-  }
-}
-</script>
 
 <style scoped>
 .container {
