@@ -39,7 +39,16 @@
 </template>
 
 <script>
-
+export default {
+  mounted () {
+    this.getPost()
+  },
+  methods: {
+    getPost () {
+      this.$axios.$get('/api').then(res => console.log(res))
+    }
+  }
+}
 </script>
 
 <style scoped>
