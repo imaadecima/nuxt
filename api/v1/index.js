@@ -12,16 +12,31 @@ app.post('/', (req, res) => {
 app.get('/token', (req, res) => {
   const cookies = new Cookies(req, res)
   const token = cookies.get('token')
-  res.json(token)
+
+  if (token) {
+    res.statusCode = 200
+    res.json({ token })
+  } else {
+    res.statusCode = 403
+    res.json({ token: null })
+  }
 })
 
 app.post('/token', (req, res) => {
   const cookies = new Cookies(req, res)
 
-  cookies.set('token', 'Bearer TOKEN', {
-    maxAge: 3600000 * 12,
-    httpOnly: true // true by default
-  })
+  const { token } = req.body
 
-  res.end('Token guardado')
+  if (token) {
+    cookies.set('token', token, {
+      maxAge: 3600000 * 12,
+      httpOnly: true
+    })
+
+    res.statusCode = 200
+    res.end('Token saved')
+  } else {
+    res.statusCode = 400
+    res.end('ERROR 400: Bad Request')
+  }
 })
