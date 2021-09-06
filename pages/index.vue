@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     getPost () {
-      this.$axios.$get('/api').then(res => console.log(res))
+      this.$axios.$get('/api', { baseURL: 'https://nuxt-imaadecima.vercel.app' }).then(res => console.log(res))
     }
   }
 }
