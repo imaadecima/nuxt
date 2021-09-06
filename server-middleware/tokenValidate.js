@@ -7,7 +7,7 @@ export default function (req, res, next) {
   const PageLogin = req.url === '/'
   const token = cookies.get('token')
 
-  if (!loadingPage && !PageLogin && !token && req.url !== '/settoken') {
+  if (!loadingPage && !PageLogin && !token && req.url !== '/settoken' && req.url !== '/api/token') {
     res.writeHead(301, { Location: '/' })
     res.end()
   }
@@ -18,10 +18,11 @@ export default function (req, res, next) {
   }
 
   if (req.url === '/settoken' && req.url !== '/_loading/sse') {
-    cookies.set('token', 'Bearer TOKEN', {
+    console.log(req)
+    /* cookies.set('token', 'Bearer TOKEN', {
       maxAge: 3600000 * 12,
       httpOnly: true // true by default
-    })
+    }) */
   }
 
   next()
