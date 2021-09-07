@@ -38,6 +38,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      mountains: []
+    }
+  },
+  async fetch () {
+    this.mountains = await fetch(
+      'https://nuxt-roan.vercel.app/api/token'
+    ).then(res => console.log(res.json()))
+  }
+}
+</script>
+
 <style scoped>
 .container {
   margin: 0 auto;
