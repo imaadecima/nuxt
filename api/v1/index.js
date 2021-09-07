@@ -1,7 +1,9 @@
 const Axios = require('axios')
 const Cookies = require('cookies')
-const app = require('express')()
-module.exports = { path: '/api', handler: app }
+const express = require('express')
+const app = express()
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.get('/', (req, res) => {
   Axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -25,7 +27,6 @@ app.get('/token', (req, res) => {
 
 app.post('/token', (req, res) => {
   const cookies = new Cookies(req, res)
-
   const { token } = req.body
 
   if (token) {
@@ -41,3 +42,5 @@ app.post('/token', (req, res) => {
     res.end('ERROR 400: Bad Request')
   }
 })
+
+module.exports = { path: '/api', handler: app }
